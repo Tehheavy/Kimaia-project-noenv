@@ -26,7 +26,6 @@ router.post('/search',async (req,res,next)=>{
           })
         }
         if (data) {
-          console.log(data.data)
           let ids=data.data.items.map(x=>{return x.id.videoId})
           console.log("ids are: "+ids.toString());
           youtube.videos.list({
@@ -40,7 +39,6 @@ router.post('/search',async (req,res,next)=>{
                     });
                 }
                 if (fdata) {
-                    console.log(fdata);
                     return res.status(200).json(fdata.data.items);
                 }
             });
